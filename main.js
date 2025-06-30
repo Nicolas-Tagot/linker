@@ -6,7 +6,10 @@ app.whenReady().then(() => {
     width: 400,
     height: 150,
     resizable: false,
-    frame: false,
+    frame: true,
+    autoHideMenuBar: true,
+    titleBarStyle: 'default',
+    movable: true,
     transparent: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
