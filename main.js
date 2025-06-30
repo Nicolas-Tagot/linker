@@ -1,16 +1,25 @@
-const { app, BrowserWindow } = require("electron")
+const { app, BrowserWindow, shell, ipcMain } = require('electron');
+const path = require('path');
 
-function createWindow() {
+app.whenReady().then(() => {
   const win = new BrowserWindow({
     width: 400,
     height: 150,
     resizable: false,
-    frame: true,
+    frame: false,
     transparent: true,
-  })
-  win.loadFile("index.html")
-}
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      contextIsolation: true,
+      nodeIntegration: false
+    }
+  });
 
-app.whenReady().then(() => {
-  createWindow()
-})
+  ipcMain.on('open-external', (event, url) => {
+    shell.openExternal(url).catch(err => {
+      console.error('Failed to open URL:', err);
+    });
+  });
+
+  win.loadFile('index.html');
+});

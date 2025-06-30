@@ -1,3 +1,5 @@
+
+
 let referenceJira = localStorage.getItem("jiraProjectRef")
 if (referenceJira) {
   const jiraReferenceInput = document.getElementById("jiraProjectRef")
@@ -39,6 +41,10 @@ if (goToJira && jiraReference) {
     const reference = jiraReference.value
     const url = `${jiraUrl}${referenceJira}${reference}`
     //window.open(url, "_blank")
-    require("electron").shell.openExternal(event.target.href)
+    try {
+      window.api.openExternal(url)
+  } catch (error) {
+    alert('Error opening Jira issue: ' + error)
+  }
   })
 }
