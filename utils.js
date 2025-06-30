@@ -38,6 +38,7 @@ if (goToJira && jiraReference) {
   goToJira.addEventListener("click", () => {
     const reference = jiraReference.value
     const url = `${jiraUrl}${referenceJira}${reference}`
-    window.open(url, "_blank")
+    //window.open(url, "_blank")
+    require("electron").shell.openExternal(event.target.href)
   })
 }
