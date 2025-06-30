@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>Pocket Jira</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="utils.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <a href="./config.html">
+        <img src="./config-img.png" alt="Configuration" class="configButton" />
+      </a>
+      <div class="input-wrapper">
+        <label for="jiraReference" id="jiraProjectRefLabel"></label>
+        <input
+          type="text"
+          class="input"
+          placeholder="Type number..."
+          id="jiraReference"
+          name="jiraReference"
+        />
+      </div>
+      <button class="button-66" id="buttonGoTo">Open</button>
+    </div>
+  </body>
+</html>

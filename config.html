@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <title>Pocket Jira</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="utils.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-wrapper-full">
+            <label for="projectUrl">url: </label>
+            <input type="text" class="input" placeholder="project url" id="projectUrl" name="projectUrl"/>
+        </div>
+        <div class="input-wrapper-full" >
+            <label for="jiraProjectRef">Ref: </label>
+            <input type="text" class="input" placeholder="reference" id="jiraProjectRef" name="jiraProjectRef" />
+        </div>
+        <div style="margin-top: 8px;">
+            <a href="./index.html">
+                <button class="button-66" id="buttonGoTo" href="./index.html">Close</button>
+            </a>
+        </div>
+    </div>
+</html>
