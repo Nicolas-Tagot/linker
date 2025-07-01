@@ -88,8 +88,19 @@ body {
 }
 
 .configButton {
-    position: absolute;
+    position: fixed;
     top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.favoriteButton {
+    position: absolute;
+    bottom: 0;
     right: 0;
     width: 20px;
     height: 20px;
