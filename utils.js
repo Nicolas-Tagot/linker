@@ -1,68 +1,67 @@
-let referenceJira = localStorage.getItem("jiraProjectRef")
-if (referenceJira) {
-  const jiraReferenceInput = document.getElementById("jiraProjectRef")
-  if (jiraReferenceInput) {
-    jiraReferenceInput.value = referenceJira
+let referenceLink = localStorage.getItem("linkProjectRef")
+if (referenceLink) {
+  const linkReferenceInput = document.getElementById("linkProjectRef")
+  if (linkReferenceInput) {
+    linkReferenceInput.value = referenceLink
   }
-  const jiraReferenceLabel = document.getElementById("jiraProjectRefLabel")
-  if (jiraReferenceLabel) {
-    const text = document.createTextNode(referenceJira)
-    jiraReferenceLabel.appendChild(text)
-  }
-}
-window.addEventListener("beforeunload", () => {
-  const jiraReferenceInput = document.getElementById("jiraProjectRef")
-  if (jiraReferenceInput) {
-    localStorage.setItem("jiraProjectRef", jiraReferenceInput.value)
-  }
-})
-
-let jiraUrl = localStorage.getItem("projectUrl")
-if (jiraUrl) {
-  const jiraUrlInput = document.getElementById("projectUrl")
-  if (jiraUrlInput) {
-    jiraUrlInput.value = jiraUrl
+  const linkReferenceLabel = document.getElementById("linkProjectRefLabel")
+  if (linkReferenceLabel) {
+    const text = document.createTextNode(referenceLink)
+    linkReferenceLabel.appendChild(text)
   }
 }
 window.addEventListener("beforeunload", () => {
-  const jiraUrlInput = document.getElementById("projectUrl")
-  if (jiraUrlInput) {
-    localStorage.setItem("projectUrl", jiraUrlInput.value)
+  const linkReferenceInput = document.getElementById("linkProjectRef")
+  if (linkReferenceInput) {
+    localStorage.setItem("linkProjectRef", linkReferenceInput.value)
   }
 })
 
-const goToJira = document.getElementById("buttonGoTo")
+let linkUrl = localStorage.getItem("projectUrl")
+if (linkUrl) {
+  const linkUrlInput = document.getElementById("projectUrl")
+  if (linkUrlInput) {
+    linkUrlInput.value = linkUrl
+  }
+}
+window.addEventListener("beforeunload", () => {
+  const linkUrlInput = document.getElementById("projectUrl")
+  if (linkUrlInput) {
+    localStorage.setItem("projectUrl", linkUrlInput.value)
+  }
+})
 
-const jiraReference = document.getElementById("jiraReference")
-if (goToJira && jiraReference) {
-  goToJira.addEventListener("click", () => {
-    const reference = jiraReference.value
-    const url = `${jiraUrl}${referenceJira}${reference}`
+const goToLink = document.getElementById("button-go-to")
+
+const linkReference = document.getElementById("linkReference")
+if (goToLink && linkReference) {
+  goToLink.addEventListener("click", () => {
+    const reference = linkReference.value
+    const url = `${linkUrl}${referenceLink}${reference}`
     //window.open(url, "_blank")
     try {
       window.api.openExternal(url)
     } catch (error) {
-      alert("Error opening Jira issue: " + error)
+      alert("Error opening link issue: " + error)
     }
   })
 }
 
-const addFavoriteButton = document.getElementById("addFavoriteButton")
+const addFavoriteButton = document.getElementById("add-favorite-button")
 if (addFavoriteButton) {
   addFavoriteButton.addEventListener("click", () => {
-    const jiraReference = document.getElementById("jiraReference")
-    if (jiraReference) {
-      const reference = jiraReference.value
+    const linkReference = document.getElementById("linkReference")
+    if (linkReference) {
+      const reference = linkReference.value
       if (reference) {
         const favorites = JSON.parse(localStorage.getItem("favorites")) || []
         if (!favorites.includes(reference)) {
           favorites.push(reference)
           localStorage.setItem("favorites", JSON.stringify(favorites))
         }
-      } else {
-        alert("Please enter a Jira reference")
       }
     }
+    linkReference.value = ""
   })
 }
 
@@ -74,31 +73,29 @@ if (favoritesList) {
       const listItem = document.createElement("div")
       listItem.className = "form-container"
       const deleteButton = document.createElement("div")
-      deleteButton.className = "buttonDelete"
+      deleteButton.className = "button-delete"
 
       deleteButton.onclick = () => {
-        // Prevent the click from triggering the listItem's onclick
         const favorites = JSON.parse(localStorage.getItem("favorites")) || []
         const newFavorites = favorites.filter((fav) => {
           return fav !== favorite
         })
         localStorage.setItem("favorites", JSON.stringify(newFavorites))
-        listItem.remove() // Remove the list item from the DOM
-        //favoritesList.removeChild(listItem) // Remove the list item from the DOM
+        listItem.remove()
       }
 
       const linkButton = document.createElement("button")
 
       linkButton.className = "button-55"
       linkButton.onclick = () => {
-        const jiraUrl = localStorage.getItem("projectUrl") || ""
-        const referenceJira = localStorage.getItem("jiraProjectRef") || ""
-        const url = `${jiraUrl}${referenceJira}${favorite}`
+        const linkUrl = localStorage.getItem("projectUrl") || ""
+        const referenceLink = localStorage.getItem("linkProjectRef") || ""
+        const url = `${linkUrl}${referenceLink}${favorite}`
 
         try {
           window.api.openExternal(url)
         } catch (error) {
-          alert("Error opening Jira issue: " + error)
+          alert("Error opening link issue: " + error)
         }
       }
 
@@ -108,8 +105,8 @@ if (favoritesList) {
       favoritesList.appendChild(listItem)
     })
   } else {
-    const noFavoritesMessage = document.createElement("li")
-    noFavoritesMessage.textContent = "No favorites added yet."
+    const noFavoritesMessage = document.createElement("div")
+    noFavoritesMessage.className = "empty"
     favoritesList.appendChild(noFavoritesMessage)
   }
 }
