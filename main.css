@@ -74,13 +74,27 @@ body {
 
 .configButton {
     position: fixed;
-    top: 0;
+    top: 6px;
     right: 10px;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border: none;
     padding: 2px;
     cursor: pointer;
+    transition: 0.5s;
+    background-image: url("config-img.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.configButton:hover {
+    transition: 0.3s;
+    transform: rotate(90deg);
+    background-image: url("config-color.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .favoriteButton {
@@ -92,6 +106,19 @@ body {
     border: none;
     padding: 2px;
     cursor: pointer;
+    transition: 0.5s;
+    background-image: url("star-black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.favoriteButton:hover {
+    transition: 0.2s;
+    background-image: url('star-color.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .addFavoriteButton {
@@ -109,6 +136,7 @@ body {
 }
 
 .addFavoriteButton:hover {
+    transition: 0.2s;
     background-image: url('addColor.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -131,6 +159,53 @@ body {
 
 .buttonGoTo:hover {
     background-image: url('fusee-color.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buttonClose {
+    position: fixed;
+    top: 6px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-image: url("close-black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buttonClose:hover {
+    transition: 0.4s;
+    transform: rotate(90deg);
+    background-image: url("close-color.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buttonDelete {
+    width: 15px;
+    height: 15px;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+    transition: 0.5s;
+    background-image: url("close-black.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.buttonDelete:hover {
+    transition: 0.4s;
+    transform: rotate(90deg);
+    background-image: url("close-color.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

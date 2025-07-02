@@ -71,9 +71,26 @@ if (favoritesList) {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
   if (favorites.length > 0) {
     favorites.forEach((favorite) => {
-      const listItem = document.createElement("button")
-      listItem.className = "button-55"
-      listItem.onclick = () => {
+      const listItem = document.createElement("div")
+      listItem.className = "form-container"
+      const deleteButton = document.createElement("div")
+      deleteButton.className = "buttonDelete"
+
+      deleteButton.onclick = () => {
+        // Prevent the click from triggering the listItem's onclick
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+        const newFavorites = favorites.filter((fav) => {
+          return fav !== favorite
+        })
+        localStorage.setItem("favorites", JSON.stringify(newFavorites))
+        listItem.remove() // Remove the list item from the DOM
+        //favoritesList.removeChild(listItem) // Remove the list item from the DOM
+      }
+
+      const linkButton = document.createElement("button")
+
+      linkButton.className = "button-55"
+      linkButton.onclick = () => {
         const jiraUrl = localStorage.getItem("projectUrl") || ""
         const referenceJira = localStorage.getItem("jiraProjectRef") || ""
         const url = `${jiraUrl}${referenceJira}${favorite}`
@@ -84,7 +101,10 @@ if (favoritesList) {
           alert("Error opening Jira issue: " + error)
         }
       }
-      listItem.textContent = favorite
+
+      linkButton.textContent = favorite
+      listItem.appendChild(linkButton)
+      listItem.appendChild(deleteButton)
       favoritesList.appendChild(listItem)
     })
   } else {
