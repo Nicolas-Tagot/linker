@@ -1,7 +1,7 @@
 {
   "name": "pocket-link",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Linker is a simple application to open links by ID.",
   "main": "main.js",
   "scripts": {
     "start": "electron .",

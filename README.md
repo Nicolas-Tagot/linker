@@ -1,5 +1,7 @@
 # linker
 
+Version: 1.0.1
+
 # Introduction
 
 Little portable application to have at hand a solution to open link by id.
