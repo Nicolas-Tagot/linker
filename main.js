@@ -1,5 +1,5 @@
-const { app, BrowserWindow, shell, ipcMain } = require('electron');
-const path = require('path');
+const { app, BrowserWindow, shell, ipcMain, clipboard } = require("electron")
+const path = require("path")
 
 app.whenReady().then(() => {
   const win = new BrowserWindow({
@@ -8,21 +8,25 @@ app.whenReady().then(() => {
     resizable: false,
     frame: true,
     autoHideMenuBar: true,
-    titleBarStyle: 'default',
+    titleBarStyle: "default",
     movable: true,
     transparent: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
-      nodeIntegration: false
-    }
-  });
+      nodeIntegration: false,
+    },
+  })
 
-  ipcMain.on('open-external', (event, url) => {
-    shell.openExternal(url).catch(err => {
-      console.error('Failed to open URL:', err);
-    });
-  });
+  ipcMain.on("open-external", (event, url) => {
+    shell.openExternal(url).catch((err) => {
+      console.error("Failed to open URL:", err)
+    })
+  })
 
-  win.loadFile('index.html');
-});
+  ipcMain.handle("read-clipboard", () => {
+    return clipboard.readText()
+  })
+
+  win.loadFile("index.html")
+})

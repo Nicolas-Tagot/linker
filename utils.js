@@ -10,6 +10,17 @@ if (referenceLink) {
     linkReferenceLabel.appendChild(text)
   }
 }
+
+function goToUrl() {
+  const reference = linkReference.value
+  const url = `${linkUrl}${referenceLink}${reference}`
+  try {
+    window.api.openExternal(url)
+  } catch (error) {
+    alert("Error opening link issue: " + error)
+  }
+}
+
 window.addEventListener("beforeunload", () => {
   const linkReferenceInput = document.getElementById("linkProjectRef")
   if (linkReferenceInput) {
@@ -24,6 +35,7 @@ if (linkUrl) {
     linkUrlInput.value = linkUrl
   }
 }
+
 window.addEventListener("beforeunload", () => {
   const linkUrlInput = document.getElementById("projectUrl")
   if (linkUrlInput) {
@@ -34,16 +46,19 @@ window.addEventListener("beforeunload", () => {
 const goToLink = document.getElementById("button-go-to")
 
 const linkReference = document.getElementById("linkReference")
-if (goToLink && linkReference) {
-  goToLink.addEventListener("click", () => {
-    const reference = linkReference.value
-    const url = `${linkUrl}${referenceLink}${reference}`
-    //window.open(url, "_blank")
-    try {
-      window.api.openExternal(url)
-    } catch (error) {
-      alert("Error opening link issue: " + error)
+if (linkReference) {
+  linkReference.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      goToUrl()
     }
+  })
+}
+
+if (goToLink) {
+  goToLink.addEventListener("click", async (event) => {
+    const clipboardText = await window.api.readClipboard()
+    const url = `${linkUrl}${referenceLink}${clipboardText}`
+    window.api.openExternal(url)
   })
 }
 
@@ -66,6 +81,7 @@ if (addFavoriteButton) {
 }
 
 const favoritesList = document.getElementById("favoritesList")
+
 if (favoritesList) {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
   if (favorites.length > 0) {

@@ -1,5 +1,6 @@
-const { contextBridge, ipcRenderer } = require('electron');
+const { contextBridge, ipcRenderer } = require("electron")
 
-contextBridge.exposeInMainWorld('api', {
-  openExternal: (url) => ipcRenderer.send('open-external', url)
-});
+contextBridge.exposeInMainWorld("api", {
+  openExternal: (url) => ipcRenderer.send("open-external", url),
+  readClipboard: () => ipcRenderer.invoke("read-clipboard"),
+})
