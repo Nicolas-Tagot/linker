@@ -87,7 +87,7 @@ body {
     padding: 2px;
     cursor: pointer;
     transition: 0.5s;
-    background-image: url("config-img.png");
+    background-image: url("../assets/config-img.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -96,7 +96,7 @@ body {
 .button-config:hover {
     transition: 0.3s;
     transform: rotate(90deg);
-    background-image: url("config-color.png");
+    background-image: url("../assets/config-color.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -112,7 +112,7 @@ body {
     padding: 2px;
     cursor: pointer;
     transition: 0.5s;
-    background-image: url("star-black.png");
+    background-image: url("../assets/star-black.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -122,7 +122,7 @@ body {
 
 .button-favorite:hover {
     transition: 0.2s;
-    background-image: url('star-color.png');
+    background-image: url('../assets/star-color.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -136,7 +136,7 @@ body {
     padding: 2px;
     cursor: pointer;
     transition: 0.5s;
-    background-image: url("add.png");
+    background-image: url("../assets/add.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -144,7 +144,7 @@ body {
 
 .add-favorite-button:hover {
     transition: 0.4s;
-    background-image: url('addColor.png');
+    background-image: url('../assets/addColor.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -152,7 +152,7 @@ body {
 
 .add-favorite-button:active {
     transform: scale(1.8);
-    background-image: url('favorite-click.png');
+    background-image: url('../assets/favorite-click.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -169,7 +169,7 @@ body {
     padding: 2px;
     cursor: pointer;
     transition: 0.5s;
-    background-image: url("valid-black.png");
+    background-image: url("../assets/valid-black.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -178,7 +178,7 @@ body {
 .valid-button:hover {
     transition: 0.4s;
     transform: scale(1.2);
-    background-image: url('valid-color.png');
+    background-image: url('../assets/valid-color.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -193,14 +193,14 @@ body {
     padding: 2px;
     cursor: pointer;
     transition: 0.5s;
-    background-image: url("fusee-black.png");
+    background-image: url("../assets/fusee-black.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .button-go-to:hover {
-    background-image: url('fusee-color.png');
+    background-image: url('../assets/fusee-color.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -216,7 +216,7 @@ body {
     padding: 2px;
     cursor: pointer;
     transition: 0.5s;
-    background-image: url("close-black.png");
+    background-image: url("../assets/close-black.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -225,7 +225,7 @@ body {
 .button-close:hover {
     transition: 0.4s;
     transform: rotate(90deg);
-    background-image: url("close-color.png");
+    background-image: url("../assets/close-color.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -238,7 +238,7 @@ body {
     padding: 2px;
     cursor: pointer;
     transition: 0.5s;
-    background-image: url("close-black.png");
+    background-image: url("../assets/close-black.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -247,7 +247,7 @@ body {
 .button-delete:hover {
     transition: 0.4s;
     transform: rotate(90deg);
-    background-image: url("close-color.png");
+    background-image: url("../assets/close-color.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -302,7 +302,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     opacity: 0.3;
-    background-image: url("empty.png");
+    background-image: url("../assets/empty.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
